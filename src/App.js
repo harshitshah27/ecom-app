@@ -1,23 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppBar from '../src/Components/Shared/AppBar';
+import HeaderSection from '../src/Components/Shared/HeaderSection';
+import QuoteSection from '../src/Components/Shared/QuoteSection';
+import FeatureSection from '../src/Components/Shared/FeatureSection';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <AppBar />
+      <HeaderSection />
+      <QuoteSection />
+      <FeatureSection />
     </div>
   );
 }
