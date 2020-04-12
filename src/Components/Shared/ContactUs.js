@@ -56,7 +56,7 @@ export default function ContactUs() {
   };
   return (
     <Box className={classes.root}>
-      <form onSubmit={handleClick}>
+      <form>
         <h2 className={classes.contactUsTitle}>CONTACT US...</h2>
         <Grid container justify="center" direction="row">
           <Grid item lg={6} sm={12}>
