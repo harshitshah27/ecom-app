@@ -8,6 +8,7 @@ import {Create, Power, Computer} from '@material-ui/icons';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    marginBottom: '10px',
   },
   media: {
     height: 140,

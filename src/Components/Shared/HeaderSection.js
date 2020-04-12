@@ -38,6 +38,12 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  buttonContainer: {
+    border: '1px solid yellow',
+    borderRadius: '15px',
+    marginBottom: '10px',
+    marginTop: '10px',
+  },
 });
 
 export default function HeaderSection() {
@@ -60,7 +66,11 @@ export default function HeaderSection() {
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry.
       </Typography>
-      <Button className={classes.button}>Who We are?</Button>
+      <div className={classes.buttonContainer}>
+        <Button className={classes.button} disableElevation color="secondary">
+          Who We are?
+        </Button>
+      </div>
     </div>
   );
 }
