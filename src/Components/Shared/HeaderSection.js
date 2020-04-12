@@ -48,6 +48,9 @@ const useStyles = makeStyles({
 
 export default function HeaderSection() {
   const classes = useStyles();
+  const handleClick = () => {
+    window.alert('Kindly Scroll through the site!!');
+  };
 
   return (
     <div className={classes.mainContainer}>
@@ -67,7 +70,11 @@ export default function HeaderSection() {
         industry.
       </Typography>
       <div className={classes.buttonContainer}>
-        <Button className={classes.button} disableElevation color="secondary">
+        <Button
+          className={classes.button}
+          disableElevation
+          color="secondary"
+          onClick={handleClick}>
           Who We are?
         </Button>
       </div>
