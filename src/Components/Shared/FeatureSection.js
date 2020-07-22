@@ -1,7 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import FeatureCard from './FeaturesCard';
-import {Grid, Button} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import ProductList from '../../Assets/Products.json';
 import ShoppingCard from './ShoppingCard';
 const useStyles = makeStyles({

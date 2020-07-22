@@ -1,6 +1,5 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
@@ -16,6 +15,7 @@ const useStyles = makeStyles({
     color: 'yellow',
     fontSize: '100px',
     letterSpacing: '5px',
+    paddingTop: '5%',
   },
   subText: {
     color: 'yellow',
@@ -48,15 +48,11 @@ const useStyles = makeStyles({
 
 export default function HeaderSection() {
   const classes = useStyles();
-  const handleClick = () => {
-    window.alert('Kindly Scroll through the site!!');
-  };
-
   return (
     <div className={classes.mainContainer}>
       <Typography variant="h5" component="h2" className={classes.mainText}>
-        Treat Yo <br />
-        Self....
+        "Treat yo' <br />
+        Self"...
       </Typography>
       <Typography
         variant="body2"
@@ -64,17 +60,8 @@ export default function HeaderSection() {
         gutterBottom
         component="p"
         className={classes.subText}>
-        Happiness is not in money, but in shopping.
+        What it takes to be happy ? A best cuisine....
       </Typography>
-      {/* <div className={classes.buttonContainer}>
-        <Button
-          className={classes.button}
-          disableElevation
-          color="secondary"
-          onClick={handleClick}>
-          Who We are?
-        </Button>
-      </div> */}
     </div>
   );
 }

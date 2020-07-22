@@ -33,10 +33,10 @@ export default function ButtonAppBar() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.imageStyle}>
+      <AppBar position="fixed" className={classes.imageStyle}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            ShopLifter
+            Let Eat Be
           </Typography>
           {/* <img src={Logo} className={classes.title} /> */}
           <IconButton
