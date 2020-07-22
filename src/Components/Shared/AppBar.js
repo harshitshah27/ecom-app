@@ -36,7 +36,7 @@ export default function ButtonAppBar() {
       <AppBar position="static" className={classes.imageStyle}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Montreal
+            ShopLifter
           </Typography>
           {/* <img src={Logo} className={classes.title} /> */}
           <IconButton
