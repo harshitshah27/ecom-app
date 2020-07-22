@@ -4,8 +4,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-// import Logo from '../../Assets/Images/montreal.jpg';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Badge from '@material-ui/core/Badge';
+import {withStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,10 +14,11 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    backgroundColor: 'yellow',
-    color: 'black',
+    // backgroundColor: 'yellow',
+    color: 'white',
     '&:hover': {
-      backgroundColor: 'white',
+      backgroundColor: 'none',
+      color: 'yellow',
     },
   },
   title: {
@@ -29,6 +31,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}))(Badge);
+
 export default function ButtonAppBar() {
   const classes = useStyles();
   return (
@@ -39,12 +50,10 @@ export default function ButtonAppBar() {
             Let Eat Be
           </Typography>
           {/* <img src={Logo} className={classes.title} /> */}
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu">
-            <MenuIcon />
+          <IconButton aria-label="cart" className={classes.menuButton}>
+            <StyledBadge badgeContent={4} color="default">
+              <ShoppingCartIcon />
+            </StyledBadge>
           </IconButton>
         </Toolbar>
       </AppBar>
