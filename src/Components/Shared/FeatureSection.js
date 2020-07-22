@@ -66,14 +66,14 @@ export default function FeatureSection() {
         alignContent="center"
         alignItems="center"
         direction="row">
-        <Grid item className={classes.buttonContainer}>
+        {/* <Grid item className={classes.buttonContainer}>
           <Button
             className={classes.button}
             disableElevation
             onClick={handleClick}>
             Launch Project Now
           </Button>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

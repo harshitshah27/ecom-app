@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: '#12100a',
+    // backgroundColor: '#12100a',
     justifySelf: 'center',
     display: 'flex',
   },
@@ -55,8 +55,8 @@ export default function HeaderSection() {
   return (
     <div className={classes.mainContainer}>
       <Typography variant="h5" component="h2" className={classes.mainText}>
-        WAKE THE <br />
-        DESIGN
+        Treat Yo <br />
+        Self....
       </Typography>
       <Typography
         variant="body2"
@@ -64,12 +64,9 @@ export default function HeaderSection() {
         gutterBottom
         component="p"
         className={classes.subText}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. <br />
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry.
+        Happiness is not in money, but in shopping.
       </Typography>
-      <div className={classes.buttonContainer}>
+      {/* <div className={classes.buttonContainer}>
         <Button
           className={classes.button}
           disableElevation
@@ -77,7 +74,7 @@ export default function HeaderSection() {
           onClick={handleClick}>
           Who We are?
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }
