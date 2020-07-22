@@ -1,8 +1,8 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import FeatureCard from './FeaturesCard';
-import {Grid, Button} from '@material-ui/core';
-
+import {Grid} from '@material-ui/core';
+import ProductList from '../../Assets/Products.json';
+import ShoppingCard from './ShoppingCard';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -27,53 +27,18 @@ const useStyles = makeStyles({
 export default function FeatureSection() {
   const classes = useStyles();
 
-  const handleClick = () => {
-    window.alert('Launch Project');
-  };
+  const product = ProductList.splice(0, 5);
 
   return (
     <>
-      <Grid
-        container
-        direction="row"
-        justify="space-around"
-        className={classes.root}>
-        <Grid item>
-          <FeatureCard
-            title="design"
-            subtext='"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...'
-          />
-        </Grid>
-        <Grid item>
-          <FeatureCard
-            title="coding"
-            subtext='"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."'
-          />
-        </Grid>
-        <Grid item>
-          <FeatureCard
-            title="apps"
-            subtext='"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."'
-          />
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        justify="center"
-        alignContent="center"
-        alignItems="center"
-        direction="row">
-        {/* <Grid item className={classes.buttonContainer}>
-          <Button
-            className={classes.button}
-            disableElevation
-            onClick={handleClick}>
-            Launch Project Now
-          </Button>
-        </Grid> */}
+      <Grid container className={classes.root} spacing={2} direction="row">
+        {product.map((i) => {
+          return (
+            <Grid item>
+              <ShoppingCard title={i.item} />
+            </Grid>
+          );
+        })}
       </Grid>
     </>
   );
