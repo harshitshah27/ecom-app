@@ -94,7 +94,13 @@ function CartModal(props) {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={() => close()} color="primary">
+          <Button
+            autoFocus
+            onClick={() => {
+              close();
+              window.alert('Order Placed Successfully');
+            }}
+            color="primary">
             Place Order
           </Button>
         </DialogActions>
