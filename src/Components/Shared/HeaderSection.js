@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    // backgroundColor: '#12100a',
     justifySelf: 'center',
     display: 'flex',
   },
@@ -44,6 +43,11 @@ const useStyles = makeStyles({
     marginBottom: '10px',
     marginTop: '10px',
   },
+  mainSubText: {
+    color: 'yellow',
+    fontSize: '100px',
+    letterSpacing: '5px',
+  },
 });
 
 export default function HeaderSection() {
@@ -51,16 +55,20 @@ export default function HeaderSection() {
   return (
     <div className={classes.mainContainer}>
       <Typography variant="h5" component="h2" className={classes.mainText}>
-        "Treat yo' <br />
+        "Treat yo'
+        <br />
+      </Typography>
+      <Typography variant="h5" component="h2" className={classes.mainSubText}>
         Self"...
       </Typography>
+
       <Typography
         variant="body2"
         color="textSecondary"
         gutterBottom
         component="p"
         className={classes.subText}>
-        What it takes to be happy ? A best cuisine....
+        To live a full life, you have to fill your stomach first.
       </Typography>
     </div>
   );
