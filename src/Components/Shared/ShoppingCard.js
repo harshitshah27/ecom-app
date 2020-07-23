@@ -25,16 +25,26 @@ class ShoppingCard extends React.Component {
     super(props);
     this.state = {
       count: 0,
+      cartArray: [],
     };
   }
   onCartClick = () => {
     console.log('data', this.props.data);
-    // cartArray.push(data);
-    // setcount(count + 1);
+    let itemData = [];
+    itemData.push(this.props.data);
+    console.log('itemData', itemData);
+    this.setState({
+      count: this.state.count + 1,
+    });
+    this.setState((prevState) => {
+      console.log('prevstate', prevState.cartArray);
+      return {cartArray: prevState.cartArray, itemData};
+    });
   };
   render() {
     const {classes} = this.props;
     console.log('rposp', this.props);
+    console.log('this.state.cartArray', this.state.cartArray);
     return (
       <Card className={classes.root}>
         <CardActionArea>
