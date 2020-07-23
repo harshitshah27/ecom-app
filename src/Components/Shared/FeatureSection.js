@@ -5,8 +5,7 @@ import ProductList from '../../Assets/Products.json';
 import ShoppingCard from './ShoppingCard';
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
-    marginTop: '5%',
+    marginTop: '2%',
   },
   title: {
     fontSize: 14,
@@ -35,7 +34,7 @@ export default function FeatureSection() {
         {product.map((i) => {
           return (
             <Grid item>
-              <ShoppingCard title={i.item} />
+              <ShoppingCard data={i} />
             </Grid>
           );
         })}

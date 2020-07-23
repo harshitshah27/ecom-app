@@ -1,19 +1,19 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
-import {withStyles} from '@material-ui/core/styles';
+import {connect} from 'react-redux';
 
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    // marginRight: theme.spacing(2),
     // backgroundColor: 'yellow',
     color: 'white',
     '&:hover': {
@@ -29,19 +29,19 @@ const useStyles = makeStyles((theme) => ({
   imageStyle: {
     backgroundColor: '#12100a',
   },
-}));
+});
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
     right: -3,
     top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
+    border: `2px solid white`,
     padding: '0 4px',
   },
 }))(Badge);
 
-export default function ButtonAppBar() {
-  const classes = useStyles();
+function ButtonAppBar(props) {
+  const {classes, cartArray} = props;
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.imageStyle}>
@@ -49,9 +49,8 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             Let Eat Be
           </Typography>
-          {/* <img src={Logo} className={classes.title} /> */}
           <IconButton aria-label="cart" className={classes.menuButton}>
-            <StyledBadge badgeContent={4} color="default">
+            <StyledBadge badgeContent={cartArray.length} color="default">
               <ShoppingCartIcon />
             </StyledBadge>
           </IconButton>
@@ -60,3 +59,9 @@ export default function ButtonAppBar() {
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    cartArray: state.data,
+  };
+};
+export default connect(mapStateToProps, {})(withStyles(styles)(ButtonAppBar));
