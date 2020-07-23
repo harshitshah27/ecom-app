@@ -35,7 +35,7 @@ export default function FeatureSection() {
         {product.map((i) => {
           return (
             <Grid item>
-              <ShoppingCard title={i.item} />
+              <ShoppingCard data={i} />
             </Grid>
           );
         })}
