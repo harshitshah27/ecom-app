@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import {connect} from 'react-redux';
+import CartModal from './CartModal';
 
 const styles = (theme) => ({
   root: {
@@ -42,6 +43,16 @@ const StyledBadge = withStyles((theme) => ({
 
 function ButtonAppBar(props) {
   const {classes, cartArray} = props;
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    if (cartArray.length >= 1) setOpen(true);
+    else return;
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.imageStyle}>
@@ -49,13 +60,17 @@ function ButtonAppBar(props) {
           <Typography variant="h6" className={classes.title}>
             Let Eat Be
           </Typography>
-          <IconButton aria-label="cart" className={classes.menuButton}>
+          <IconButton
+            aria-label="cart"
+            className={classes.menuButton}
+            onClick={handleClickOpen}>
             <StyledBadge badgeContent={cartArray.length} color="default">
               <ShoppingCartIcon />
             </StyledBadge>
           </IconButton>
         </Toolbar>
       </AppBar>
+      <CartModal open={open} close={handleClose} />
     </div>
   );
 }

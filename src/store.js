@@ -6,7 +6,6 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 
 const middleware = [thunk, logger];
 
-console.log('in store.js');
 const store = createStore(
   orderReducers,
   compose(composeWithDevTools(applyMiddleware(...middleware))),

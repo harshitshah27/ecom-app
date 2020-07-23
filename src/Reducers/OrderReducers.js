@@ -4,7 +4,6 @@ const initialState = {
   data: [],
 };
 
-console.log('in student reducer');
 export const orderReducers = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ORDER:
