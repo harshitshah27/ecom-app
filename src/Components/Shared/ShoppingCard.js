@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Faker from 'faker';
 import {Grid} from '@material-ui/core';
+import {connect} from 'react-redux';
 
 const styles = (theme) => ({
   root: {
@@ -28,19 +29,20 @@ class ShoppingCard extends React.Component {
       cartArray: [],
     };
   }
-  onCartClick = () => {
-    console.log('data', this.props.data);
+  // onCartClick = (item) => {
+  // console.log('data', this.props.data);
+  // this.setState({
+  //   count: this.state.count + 1,
+  //   cartArray: itemData,
+  // });
+  // };
+
+  onCartClick() {
     let itemData = [];
     itemData.push(this.props.data);
     console.log('itemData', itemData);
-    this.setState({
-      count: this.state.count + 1,
-    });
-    this.setState((prevState) => {
-      console.log('prevstate', prevState.cartArray);
-      return {cartArray: prevState.cartArray, itemData};
-    });
-  };
+    this.setState({cartArray: [...this.state.cartArray, itemData]});
+  }
   render() {
     const {classes} = this.props;
     console.log('rposp', this.props);
@@ -103,5 +105,14 @@ class ShoppingCard extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  console.log('state', state);
+  return {};
+};
 
-export default withStyles(styles)(ShoppingCard);
+export default connect(mapStateToProps, {})(withStyles(styles)(ShoppingCard));
+
+// export default connect(mapStateToProps, null, withStyles(styles)(ShoppingCard));
+// export default connect(mapStateToProps, {
+// 	createStudent,
+// })(Popup);
