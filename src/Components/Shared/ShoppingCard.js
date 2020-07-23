@@ -56,7 +56,7 @@ class ShoppingCard extends React.Component {
           <CardMedia
             className={classes.media}
             image={Faker.image.food()}
-            title="Contemplative Reptile"
+            title={this.props.data.item}
           />
           <CardContent>
             <Typography
