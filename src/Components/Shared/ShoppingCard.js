@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Faker from 'faker';
 import {Grid} from '@material-ui/core';
 import {connect} from 'react-redux';
+import {addOrder, removeOrder} from '../../Actions/OrderActions';
 
 const styles = (theme) => ({
   root: {
@@ -29,24 +30,26 @@ class ShoppingCard extends React.Component {
       cartArray: [],
     };
   }
-  // onCartClick = (item) => {
-  // console.log('data', this.props.data);
-  // this.setState({
-  //   count: this.state.count + 1,
-  //   cartArray: itemData,
-  // });
-  // };
 
-  onCartClick() {
-    let itemData = [];
-    itemData.push(this.props.data);
-    console.log('itemData', itemData);
-    this.setState({cartArray: [...this.state.cartArray, itemData]});
-  }
+  onCartClick = () => {
+    const {count} = this.state;
+    this.setState({count: count + 1});
+    this.props.addOrder(this.props.data);
+  };
+  onDecrement = () => {
+    const {count} = this.state;
+    this.setState({count: count - 1});
+    this.props.removeOrder(this.props.data);
+  };
+  onIncrement = () => {
+    const {count} = this.state;
+    this.setState({count: count + 1});
+    this.props.addOrder(this.props.data);
+  };
   render() {
     const {classes} = this.props;
-    console.log('rposp', this.props);
-    console.log('this.state.cartArray', this.state.cartArray);
+    const {count} = this.state;
+
     return (
       <Card className={classes.root}>
         <CardActionArea>
@@ -93,13 +96,21 @@ class ShoppingCard extends React.Component {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary" onClick={this.onCartClick}>
-            Add to cart
-          </Button>
-          {this.state.count}
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
+          {count > 0 ? (
+            <>
+              <Button size="small" color="primary" onClick={this.onDecrement}>
+                -
+              </Button>
+              {count}
+              <Button size="small" color="primary" onClick={this.onIncrement}>
+                +
+              </Button>
+            </>
+          ) : (
+            <Button size="small" color="primary" onClick={this.onCartClick}>
+              Add to cart
+            </Button>
+          )}
         </CardActions>
       </Card>
     );
@@ -110,9 +121,6 @@ const mapStateToProps = (state) => {
   return {};
 };
 
-export default connect(mapStateToProps, {})(withStyles(styles)(ShoppingCard));
-
-// export default connect(mapStateToProps, null, withStyles(styles)(ShoppingCard));
-// export default connect(mapStateToProps, {
-// 	createStudent,
-// })(Popup);
+export default connect(mapStateToProps, {addOrder, removeOrder})(
+  withStyles(styles)(ShoppingCard),
+);

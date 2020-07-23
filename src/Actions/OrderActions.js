@@ -1,20 +1,15 @@
-import axios from 'axios';
-import {
-  GET_ALL_STUDENT,
-  GET_ALL_STUDENT_SUCCESS,
-  GET_ALL_STUDENT_FAILURE,
-  CREATE_STUDENT_SUCCESS,
-} from '../types';
+import {ADD_ORDER, REMOVE_ORDER} from '../types';
 
-const fetchStudent = () => {
+export const addOrder = (data) => {
   return {
-    type: GET_ALL_STUDENT,
+    type: ADD_ORDER,
+    payload: data,
   };
 };
 
-const fetchStudentSuccess = (students) => {
+export const removeOrder = (data) => {
   return {
-    type: GET_ALL_STUDENT_SUCCESS,
-    payload: students,
+    type: REMOVE_ORDER,
+    payload: data,
   };
 };
